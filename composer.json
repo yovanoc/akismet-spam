@@ -1,0 +1,26 @@
+
+{
+    "name": "chrisyoyo/akismet-spam",
+    "license": "MIT",
+    "description": "Akismet Service for spam detection.",
+    "keywords": ["laravel", "akismet", "spam"],
+    "homepage": "http://github.com/chrisyoyo/akismet-spam",
+    "authors": [
+        {
+            "name": "Christopher Yovanovitch",
+            "email": "yovano_c@outlook.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "laravel/framework": "~5.1",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "Chrisyoyo\\AkismetSpam\\": "src/"
+        }
+    }
