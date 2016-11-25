@@ -74,7 +74,7 @@ class AkismetSpamService implements SpamServiceInterface
 
     protected function mapParameters($parameters, $additional = [])
     {
-        $parameterMap = config('spam.parameter_map');
+        $parameterMap = config('akismet-spam.parameter_map');
 
         $mappedParameters = array_map(function ($key, $value) use ($parameterMap) {
             if (isset($parameterMap[$key])) {
