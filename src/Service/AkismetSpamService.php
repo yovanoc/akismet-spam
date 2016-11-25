@@ -66,7 +66,7 @@ class AkismetSpamService implements SpamServiceInterface
     protected function checkApiKey()
     {
         $request = $this->makeRequest('verify-key', [
-            'key' => config('services.akismet.secret'),
+            'key' => config('akismet-spam.akismet.secret'),
         ]);
 
         return $request->getBody()->getContents() === 'valid';
@@ -87,14 +87,14 @@ class AkismetSpamService implements SpamServiceInterface
 
     protected function makeRequest($type, $parameters)
     {
-        return $this->client->request('POST', sprintf($this->endpoint, config('services.akismet.secret'), $type), [
+        return $this->client->request('POST', sprintf($this->endpoint, config('akismet-spam.akismet.secret'), $type), [
             'form_params' => $this->mergeDefaultFormParams($parameters)
         ]);
     }
 
     protected function mergeDefaultFormParams($parameters) {
         return array_merge([
-            'blog' => config('services.akismet.website'),
+            'blog' => config('akismet-spam.akismet.website'),
             'user_ip' => request()->ip(),
         ], $parameters);
     }
